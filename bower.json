@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-ws",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pierr/bootstrap-ws",
+  "authors": [
+    "Pierre <pierre.besson7@gmail.com>"
+  ],
+  "description": "A simple workshop on Twitter bootstrap.",
+  "keywords": [
+    "bootstrap",
+    "js",
+    "css"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
