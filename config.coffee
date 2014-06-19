@@ -1,10 +1,14 @@
 exports.config =
+  sourceMaps: false
   paths:
     watched:['client']
   files:
     javascripts:
-      joinTo: 'app.js'
+      joinTo:
+        'javascripts/app.js': /^client(\/|\\)app/
+        'javascripts/vendor.js': /^(bower_components|(client(\/|\\)vendor))/
     stylesheets:
-      joinTo: 'app.css'
+      joinTo: 'stylesheets/app.css'
     templates:
-      joinTo: 'app.js'
+      default: 'hbs'
+      joinTo: 'javascripts/app.js'
