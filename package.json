@@ -23,6 +23,7 @@
   "dependencies": {
     "css-brunch": "~1.7.0",
     "handlebars-brunch": "~1.7.7",
-    "less-brunch": "~1.7.2"
+    "less-brunch": "~1.7.2",
+    "javascript-brunch": "~1.7.1"
   }
 }
