@@ -122,37 +122,37 @@ module.exports = {
   team: [{
     name: "Philippe",
     description: "DT manager",
-    image: "/images/philippe.png",
+    image: "images/philippe.png",
     technos: ["Java", "SQL"],
     twitter: "phlppchrtn"
   }, {
     name: "Nicolas",
     description: "Java specialist",
-    image: "/images/npiedeloup.png",
+    image: "images/npiedeloup.png",
     technos: ["Java", "SQL", "CSS"],
     twitter: "NPi2Loup"
   }, {
     name: "Olivier",
     description: ".NET specialist",
-    image: "/images/oboitel.png",
+    image: "images/oboitel.png",
     technos: [".NET", "SQL", "JavaScript"],
     twitter: "oboitel"
   }, {
     name: "François",
     description: "Specialist",
-    image: "/images/fconstantin.png",
+    image: "images/fconstantin.png",
     technos: [".NET", "SQL", "VM"],
     twitter: "archiklee"
   }, {
     name: "Frankie",
     description: "SQL",
-    image: "/images/flimont.png",
+    image: "images/flimont.png",
     technos: ["Java", "SQL"],
     twitter: "SpriteEsial"
   }, {
     name: "Pierre",
     description: "JS specialist",
-    image: "/images/pbesson.jpeg",
+    image: "images/pbesson.jpeg",
     technos: ["JavaScript", "CoffeeScript", "Node.js", "CSS"],
     twitter: "pbesson"
   }],
@@ -160,22 +160,22 @@ module.exports = {
     title: "Les technologies",
     values: [{
       name: "Java",
-      image: "/images/java.jpeg"
+      image: "images/java.jpeg"
     },{
       name: "JavaScript",
-      image: "/images/js.jpeg"
+      image: "images/js.jpeg"
     },{
       name: "html5",
-      image: "/images/html5.jpeg"
+      image: "images/html5.jpeg"
     },{
       name: "CSS",
-      image: "/images/css.jpeg"
+      image: "images/css.jpeg"
     },{
       name: ".NET",
-      image: "/images/dotnet.jpeg"
+      image: "images/dotnet.jpeg"
     },{
       name: "SQL",
-      image: "/images/sql.jpeg"
+      image: "images/sql.jpeg"
     }]
   }
 };
