@@ -1,5 +1,6 @@
 module.exports = {
   projectName: "Direction technique",
+  company: "Klee group",
   intro: {
     title: "Hi",
     message: "Bienvenue sur le site de la direction technique. Nous nous occupons des elements suivants:",
@@ -7,7 +8,7 @@ module.exports = {
 
   },
   contact: {
-    email:"direction.technique@kleegroup.com",
+    email: "direction.technique@kleegroup.com",
     subject: "[DT] demande d'informations",
     body: "..."
   },
@@ -48,5 +49,27 @@ module.exports = {
     image: "/images/pbesson.jpeg",
     technos: ["JavaScript", "CoffeeScript", "Node.js", "CSS"],
     twitter: "pbesson"
-  }]
+  }],
+  technologies: {
+    title: "Les technologies",
+    values: [{
+      name: "Java",
+      image: "/images/java.jpeg"
+    },{
+      name: "JavaScript",
+      image: "/images/js.jpeg"
+    },{
+      name: "html5",
+      image: "/images/html5.jpeg"
+    },{
+      name: "CSS",
+      image: "/images/css.jpeg"
+    },{
+      name: ".NET",
+      image: "/images/dotnet.jpeg"
+    },{
+      name: "SQL",
+      image: "/images/sql.jpeg"
+    }]
+  }
 };
