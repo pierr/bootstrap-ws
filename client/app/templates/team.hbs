@@ -1,22 +1,24 @@
 <div class="container">
       <!-- Example row of columns -->
+      <h2>{{teamName}}</h2>
+      <hr />
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <img src="..." alt="..." class="img-circle">
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        {{#each team}}
+        <div class="col-xs-12 col-sd-6 col-md-4 col-lg-4 team-item">
+          {{!-- Image --}}
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="{{image}}" style="width: 140px; height: 140px;">
+          <h2>{{name}}</h2>
+          {{!-- Description --}}
+          <p>
+            {{description}}<br/>
+            <a href="https://twitter.com/{{twitter}}"><b>@{{twitter}}</b></a>
+          </p>
+          {{!-- Technos --}}
+          <div class="btn-group">
+            {{#each technos}}<kbd>{{this}}</kbd>&nbsp{{/each}}   
+          </div>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
+        {{/each}}
       </div>
 
       <hr>
