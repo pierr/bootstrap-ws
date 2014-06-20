@@ -1,3 +1,4 @@
+
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -743,7 +744,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 100%;
   }
 }
 .container-fluid {
@@ -5773,11 +5774,38 @@ button.close {
   }
 }
 
+body {
+  background: url('../images/blur.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+/*    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);*/
+    z-index: 1;
+}
+/*
+div#app{
+  z-index: 9999;
+}*/
+.team{
+  background-color: rgba(255, 255, 255, 0.2);
+   margin-bottom: 20px;
+}
 .team-item {
-text-align: center;
-margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.techno{
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .techo-item{
   text-align: center;
   margin-bottom: 30px;
+
 }

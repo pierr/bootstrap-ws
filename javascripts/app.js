@@ -99,6 +99,7 @@ module.exports = {
     $('div#teamContainer').html(require('./templates/team')(data));
     $('div#technologiesContainer').html(require('./templates/technologies')(data));
     $('footer#footer').html(require('./templates/footer')(data));
+    $("#navContainer").scrollspy();
   }
 };
 });
@@ -108,17 +109,28 @@ module.exports = {
   projectName: "Direction technique",
   company: "Klee group",
   intro: {
-    title: "Hi",
+    title: "DT de Klee Group",
     message: "Bienvenue sur le site de la direction technique. Nous nous occupons des elements suivants:",
-    button: "yup",
-
+    tasks: ["Veille technologique", "Assistance technique pour les avant ventes", "Développement des Frameworks de l'entreprise", "Suivi technique des projets"],
+    button: "Contactez nous ...",
+subTitle: "..."
   },
+  sections: [{
+    selector: "#introContainer",
+    name: "Introduction"
+  }, {
+    selector: "#teamContainer",
+    name: "L'équipe"
+  }, {
+    selector: "#technologiesContainer",
+    name: "Les technos"
+  }],
   contact: {
     email: "direction.technique@kleegroup.com",
     subject: "[DT] demande d'informations",
     body: "..."
   },
-  teamName: 'DT',
+  teamName: "L'équipe",
   team: [{
     name: "Philippe",
     description: "DT manager",
@@ -161,19 +173,19 @@ module.exports = {
     values: [{
       name: "Java",
       image: "images/java.jpeg"
-    },{
+    }, {
       name: "JavaScript",
       image: "images/js.jpeg"
-    },{
+    }, {
       name: "html5",
       image: "images/html5.jpeg"
-    },{
+    }, {
       name: "CSS",
       image: "images/css.jpeg"
-    },{
+    }, {
       name: ".NET",
       image: "images/dotnet.jpeg"
-    },{
+    }, {
       name: "SQL",
       image: "images/sql.jpeg"
     }]
@@ -186,6 +198,7 @@ module.exports = {
 $.support.cors = true;
 $( document ).ready(function() {
   require('./application').initialize(require('./data'));
+   
 });
 
 });
@@ -239,14 +252,27 @@ if (typeof define === 'function' && define.amd) {
 var __templateData = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = "";
+  buffer += "<li class=\"list-group-item\">"
+    + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
+    + "<span class=\"glyphicon glyphicon-star badge\">&nbsp</span></li>";
+  return buffer;
+  }
 
-  buffer += "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n    <h1>"
+  buffer += "<div class=\"\">\r\n  <div class=\"container\">\r\n    <div class=\"page-header\">\r\n      <h1>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1>\r\n    <p>"
+    + "  <small>"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.subTitle)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</small></h1>\r\n    </div>\r\n    \r\n    <p>\r\n      "
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.message)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\r\n    <p><a href=\"mailto:"
+    + "\r\n      <ul class=\"list-group\">";
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.tasks), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</ul>\r\n    </p>\r\n    <p><a href=\"mailto:"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.contact)),stack1 == null || stack1 === false ? stack1 : stack1.email)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "?subject="
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.contact)),stack1 == null || stack1 === false ? stack1 : stack1.subject)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -272,14 +298,31 @@ if (typeof define === 'function' && define.amd) {
 var __templateData = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n              <li ><a href=\"";
+  if (helper = helpers.selector) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.selector); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</a></li>\r\n            ";
+  return buffer;
+  }
 
   buffer += "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\r\n      <div class=\"container\">\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <a class=\"navbar-brand\" href=\"#\">";
   if (helper = helpers.projectName) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.projectName); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</a>\r\n        </div>\r\n       <!--/.navbar-collapse -->\r\n      </div>\r\n    </div>";
+    + "</a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\">\r\n          <ul class=\"nav navbar-nav\">\r\n            ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.sections), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n          </ul>\r\n        </div>\r\n       <!--/.navbar-collapse -->\r\n      </div>\r\n    </div>";
   return buffer;
   });
 if (typeof define === 'function' && define.amd) {
@@ -302,7 +345,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-4 team-item\">\r\n          \r\n          <img class=\"img-circle\" data-src=\"holder.js/140x140\" alt=\"140x140\" src=\"";
+  buffer += "\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-2 team-item\">\r\n          \r\n          <img class=\"img-circle\" data-src=\"holder.js/140x140\" alt=\"140x140\" src=\"";
   if (helper = helpers.image) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.image); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -337,7 +380,7 @@ function program2(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"container\">\r\n      <!-- Example row of columns -->\r\n      <h2>";
+  buffer += "<div class=\"container team\">\r\n      <!-- Example row of columns -->\r\n      <h2>";
   if (helper = helpers.teamName) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.teamName); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -367,7 +410,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\r\n          <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-4 techo-item\">\r\n            \r\n            <img class=\"img-thumbnail\" data-src=\"holder.js/140x140\" alt=\"140x140\" src=\"";
+  buffer += "\r\n          <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-2 techo-item\">\r\n            \r\n            <img class=\"img-thumbnail\" data-src=\"holder.js/140x140\" alt=\"140x140\" src=\"";
   if (helper = helpers.image) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.image); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -379,7 +422,7 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"container\">\r\n      <!-- Example row of columns -->\r\n      <h2>"
+  buffer += "<div class=\"container techno\">\r\n      <!-- Example row of columns -->\r\n      <h2>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.technologies)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</h2>\r\n      <hr />\r\n      <div class=\"row\">\r\n        ";
   stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.technologies)),stack1 == null || stack1 === false ? stack1 : stack1.values), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
