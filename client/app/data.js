@@ -2,17 +2,28 @@ module.exports = {
   projectName: "Direction technique",
   company: "Klee group",
   intro: {
-    title: "Hi",
+    title: "DT de Klee Group",
     message: "Bienvenue sur le site de la direction technique. Nous nous occupons des elements suivants:",
-    button: "yup",
-
+    tasks: ["Veille technologique", "Assistance technique pour les avant ventes", "Développement des Frameworks de l'entreprise", "Suivi technique des projets"],
+    button: "Contactez nous ...",
+subTitle: "..."
   },
+  sections: [{
+    selector: "#introContainer",
+    name: "Introduction"
+  }, {
+    selector: "#teamContainer",
+    name: "L'équipe"
+  }, {
+    selector: "#technologiesContainer",
+    name: "Les technos"
+  }],
   contact: {
     email: "direction.technique@kleegroup.com",
     subject: "[DT] demande d'informations",
     body: "..."
   },
-  teamName: 'DT',
+  teamName: "L'équipe",
   team: [{
     name: "Philippe",
     description: "DT manager",
@@ -55,19 +66,19 @@ module.exports = {
     values: [{
       name: "Java",
       image: "images/java.jpeg"
-    },{
+    }, {
       name: "JavaScript",
       image: "images/js.jpeg"
-    },{
+    }, {
       name: "html5",
       image: "images/html5.jpeg"
-    },{
+    }, {
       name: "CSS",
       image: "images/css.jpeg"
-    },{
+    }, {
       name: ".NET",
       image: "images/dotnet.jpeg"
-    },{
+    }, {
       name: "SQL",
       image: "images/sql.jpeg"
     }]

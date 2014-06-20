@@ -6,5 +6,6 @@ module.exports = {
     $('div#teamContainer').html(require('./templates/team')(data));
     $('div#technologiesContainer').html(require('./templates/technologies')(data));
     $('footer#footer').html(require('./templates/footer')(data));
+    $("#navContainer").scrollspy();
   }
 };

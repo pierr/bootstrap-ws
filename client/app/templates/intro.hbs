@@ -1,7 +1,13 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>{{intro.title}}</h1>
-    <p>{{intro.message}}</p>
+    <div class="page-header">
+      <h1>{{intro.title}}  <small>{{intro.subTitle}}</small></h1>
+    </div>
+    
+    <p>
+      {{intro.message}}
+      <ul class="list-group">{{#each intro.tasks}}<li class="list-group-item">{{this}}<span class="glyphicon glyphicon-star badge">&nbsp</span></li>{{/each}}</ul>
+    </p>
     <p><a href="mailto:{{contact.email}}?subject={{contact.subject}}&amp;body={{contact.body}}" class="btn btn-primary btn-lg" role="button">{{intro.button}}</a></p>
   </div>
 </div>
