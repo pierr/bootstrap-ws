@@ -278,7 +278,7 @@ function program1(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.contact)),stack1 == null || stack1 === false ? stack1 : stack1.subject)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "&amp;body="
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.contact)),stack1 == null || stack1 === false ? stack1 : stack1.body)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" class=\"btn btn-primary btn-lg\" role=\"button\">"
+    + "\" class=\"btn btn-default btn-lg\" role=\"button\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.button)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</a></p>\r\n  </div>\r\n</div>";
   return buffer;
