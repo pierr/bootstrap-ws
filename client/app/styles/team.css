@@ -1,8 +1,8 @@
 .team{
-  background-color: rgba(255, 255, 255, 0.2);
    margin-bottom: 20px;
 }
 .team-item {
+  background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   margin-bottom: 30px;
 }
