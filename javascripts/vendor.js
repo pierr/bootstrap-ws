@@ -9281,7 +9281,7 @@ return jQuery;
 
 }));
 
-;/*!
+/*!
  * Bootstrap v3.1.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -11233,7 +11233,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(jQuery);
 
-;/*!
+/*!
 
  handlebars v1.3.0
 
@@ -11764,4 +11764,3 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
   return __module0__;
 })();
 
-;
