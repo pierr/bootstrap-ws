@@ -5,8 +5,24 @@ Bootstrap workshop.
 
 ## Hiérarchie des sources
 
-- README.md contient les infos 
+- **README.md** contient les infos pour démarrer le projet.
 - Les fichiers à la racines sont les fichiers de configuration des outils utilisés (package.json, bower.json et config.coffee).
+- Le code de l'application se situe dans le répertoire client.
+
+### Structure du répertoire client
+
+#### app
+
+#### templates
+
+Contient les templates des pages (afin de rendre un peu dynamique le site par défaut.
+- **nav.hbs** le menu du site.
+- **intro.hbs** l'introduction
+- **team.hbs** L'équipe que vous souhaitez décrire.
+- **technologies.hbs** Les 
+
+#### data.js
+Contient l'ensemble des données à afficher dans la page.
 
 ## Wiki
 
