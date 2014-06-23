@@ -1,6 +1,7 @@
 function registerComponents(){
   /*Register Modal*/
   $('div#modalContainer').modal({show: false});
+  /*Click on the modal save button.*/
   $('div#modalContainer button[data-save]').on('click', function(event){
     $('div#modalContainer .modal').modal("hide");
     console.log('message evnoyé');
@@ -14,8 +15,10 @@ function registerComponents(){
 }
 
 module.exports = {
+  //Initialize the application with datas.
   initialize: function(data) {
 
+    //Render the templates inside the html page.
     $('nav#navContainer').html(require('./templates/nav')(data));
     $('div#introContainer').html(require('./templates/intro')(data));
     $('div#teamContainer').html(require('./templates/team')(data));
@@ -23,9 +26,11 @@ module.exports = {
     $('footer#footer').html(require('./templates/footer')(data));
     $("div#navContainer").scrollspy();
     $('div#modalContainer').html(require('./templates/modal')(data));
-    //Bouton help sur le coôté.
+    
+    //Button contact on the right side.
     $('body').after(require('./templates/help')(data));
-    //Register events
+    
+    //Register js components.
     registerComponents();
   }
 };
