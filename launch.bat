@@ -1,0 +1,2 @@
+brunch w --server
+PAUSE
