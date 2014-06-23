@@ -1,6 +1,5 @@
 <div id="intro-header" class="carousel slide" data-ride="carousel">
-<h1>{{intro.title}}</h1>
-<p>{{intro.message}}</p>
+
 <ol class="carousel-indicators">
     {{#each intro.tasks}}
     <li data-target="#intro-header" data-slide-to="{{@index}}" class="{{#unless @index}}active{{/unless}}"></li>
@@ -10,12 +9,13 @@
 <div class="carousel-inner">
 {{#each intro.tasks}}
     <div class="item {{#unless @index}}active{{/unless}}">
-        <img src="http://monia2009.m.o.pic.centerblog.net/o/cb726d58.jpg" alt="">
+        <img src="images/slide.svg" alt="">
         <div class="container">
             <div class="carousel-caption">
-                <h1>{{this}}</h1>
-                <p class="lead">aaaaaaaaaaaaaaaaaaaaaa</p>
-                <a class="btn btn-large btn-primary" href="#">btn</a>
+                <h1>{{../intro.title}}</h1>
+                <h3>{{../intro.message}}</h3>
+                <h2>{{this}}</h2>
+                
             </div>
         </div>
     </div>
