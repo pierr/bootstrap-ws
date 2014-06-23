@@ -82,5 +82,11 @@ subTitle: "..."
       name: "SQL",
       image: "images/sql.jpeg"
     }]
+  },
+  modal:{
+    title: "Prise de contact avec la DT",
+    body: "Prenez contact avec nous....",
+    close: "Annuler",
+    save:"Envoyer"
   }
 };
