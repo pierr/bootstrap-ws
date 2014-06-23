@@ -1,7 +1,7 @@
 bootstrap-ws
 ============
 
-Bootstrap workshop.
+[Bootstrap workshop](http://pierr.github.io/bootstrap-ws/).
 
 ## Hiérarchie des sources
 
