@@ -3,8 +3,19 @@ function registerComponents(){
   $('div#modalContainer').modal({show: false});
   /*Click on the modal save button.*/
   $('div#modalContainer button[data-save]').on('click', function(event){
+    var modalData = {};
+    /*Parse value from the form. Not optimal.*/
+    $('[data-input-modal]', 'div#modalContainer .modal').each(function(elt){
+      modalData[this.id] = this.value;
+      //Remove the entered values.
+      this.value = null;
+    });
+    
     $('div#modalContainer .modal').modal("hide");
-    $('div#alert-container').html(require('./templates/alert')(require('./data')));
+    var alertData = require('./data').alert;
+    alertData.email = modalData.email;
+    
+    $('div#alert-container').html(require('./templates/alert')({alert:alertData}));
     console.log('message evnoyé');
   });
   /*Register help button*/
