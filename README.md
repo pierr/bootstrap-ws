@@ -23,8 +23,16 @@ Contient les templates des pages (afin de rendre un peu dynamique le site par d�
 - **team.hbs** L'équipe que vous souhaitez décrire.
 - **technologies.hbs** Les technologies que vous manipulez.
 
+##### styles
+
+Les feuilles css et [less](http://lesscss.org/) de l'application.
+Il y a une feuille par template.
+
 ##### data.js
 Contient l'ensemble des données à afficher dans la page.
+
+### vendor
+Contient l'ensemble des dépendances non installées avec [bower](bower.io)
 
 ## Wiki
 
