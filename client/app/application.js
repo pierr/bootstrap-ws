@@ -7,5 +7,8 @@ module.exports = {
     $('div#technologiesContainer').html(require('./templates/technologies')(data));
     $('footer#footer').html(require('./templates/footer')(data));
     $("#navContainer").scrollspy();
+    //Bouton help sur le coôté.
+    $('body').after(require('./templates/help')(data));
+
   }
 };

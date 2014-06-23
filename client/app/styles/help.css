@@ -1,0 +1,30 @@
+.help-btn {
+  cursor: pointer;
+  cursor: hand;
+  overflow: hidden;
+  position: fixed;
+  display: block;
+  top: 45%;
+  right: 0px;
+  /*left: 0px;*/
+  z-index: 2147000000;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  outline: none;
+  color: blue;
+  /*font-size: 0px;
+  line-height: 0px;
+*/
+}
+button#btn-need-help span.helpText {
+  font-size: 0px;
+  line-height: 0px; 
+}
+button#btn-need-help:hover span.helpText {
+  font-size:15px;
+  line-height: 15px;
+
+}
