@@ -7,7 +7,6 @@ Bootstrap workshop.
 
 - README.md contient les infos 
 - Les fichiers à la racines sont les fichiers de configuration des outils utilisés (package.json, bower.json et config.coffee).
-- 
 
 ## Wiki
 
