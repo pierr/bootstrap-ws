@@ -1,0 +1,11 @@
+<div class="alert alert-{{alert.type}} alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>{{alert.title}}</strong>aaaaaaaaaaaaaaaaa {{alert.message}}
+</div>
+
+<script>
+//Remove the message.
+setInterval(function(){
+  $('div.alert').remove();
+},10000);
+</script>

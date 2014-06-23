@@ -4,6 +4,7 @@ function registerComponents(){
   /*Click on the modal save button.*/
   $('div#modalContainer button[data-save]').on('click', function(event){
     $('div#modalContainer .modal').modal("hide");
+    $('div#alert-container').html(require('./templates/alert')(require('./data')));
     console.log('message evnoyé');
   });
   /*Register help button*/

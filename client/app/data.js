@@ -88,5 +88,10 @@ subTitle: "..."
     body: "Prenez contact avec nous....",
     close: "Annuler",
     save:"Envoyer"
+  },
+  alert: {
+    type: "success",
+    title: "Merci.",
+    message: "Nous prendrons contact avec vous le plus rapidement possible."
   }
 };
