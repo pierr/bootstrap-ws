@@ -11,7 +11,6 @@ Bootstrap workshop.
 
 ### Structure du répertoire client
 
-
 #### app
 
 Voici la structure du répertoire app.
@@ -31,8 +30,15 @@ Il y a une feuille par template.
 ##### data.js
 Contient l'ensemble des données à afficher dans la page.
 
-### vendor
+#### assets
+Contient l'ensemble des ressources statiques de l'application (images, polices).
+
+#### vendor
 Contient l'ensemble des dépendances non installées avec [bower](bower.io)
+
+### Le répertoire _public_
+Le répertoire **public** contient les sources _compilées_: on a don un fichier `index.html`, deux fichiers js : `app.js` et `vendor.js` et les ressources statiques.
+
 
 ## Wiki
 
