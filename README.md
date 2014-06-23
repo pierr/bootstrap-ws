@@ -11,17 +11,19 @@ Bootstrap workshop.
 
 ### Structure du répertoire client
 
+
 #### app
 
-#### templates
+Voici la structure du répertoire app.
+##### templates
 
 Contient les templates des pages (afin de rendre un peu dynamique le site par défaut.
 - **nav.hbs** le menu du site.
 - **intro.hbs** l'introduction
 - **team.hbs** L'équipe que vous souhaitez décrire.
-- **technologies.hbs** Les 
+- **technologies.hbs** Les technologies que vous manipulez.
 
-#### data.js
+##### data.js
 Contient l'ensemble des données à afficher dans la page.
 
 ## Wiki
