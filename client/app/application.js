@@ -1,4 +1,7 @@
 function registerComponents(){
+  /*Register carroussel*/
+  $('div#intro-header').carousel();
+  $('#myCarousel').carousel();
   /*Register Modal*/
   $('div#modalContainer').modal({show: false});
   /*Click on the modal save button.*/

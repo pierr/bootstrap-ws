@@ -1,13 +1,27 @@
-<div class="">
-  <div class="container">
-    <div class="page-header">
-      <h1>{{intro.title}}  <small>{{intro.subTitle}}</small></h1>
+<div id="intro-header" class="carousel slide" data-ride="carousel">
+<h1>{{intro.title}}</h1>
+<p>{{intro.message}}</p>
+<ol class="carousel-indicators">
+    {{#each intro.tasks}}
+    <li data-target="#intro-header" data-slide-to="{{@index}}" class="{{#unless @index}}active{{/unless}}"></li>
+    {{/each}}
+</ol>
+
+<div class="carousel-inner">
+{{#each intro.tasks}}
+    <div class="item {{#unless @index}}active{{/unless}}">
+        <img src="http://monia2009.m.o.pic.centerblog.net/o/cb726d58.jpg" alt="">
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>{{this}}</h1>
+                <p class="lead">aaaaaaaaaaaaaaaaaaaaaa</p>
+                <a class="btn btn-large btn-primary" href="#">btn</a>
+            </div>
+        </div>
     </div>
-    
-    <p>
-      {{intro.message}}
-      <ul class="media-list">{{#each intro.tasks}}<li class="media"><div class="media-body">{{this}}</div><span class="glyphicon glyphicon-star badge">&nbsp</span></li>{{/each}}</ul>
-    </p>
-    <p><a href="mailto:{{contact.email}}?subject={{contact.subject}}&amp;body={{contact.body}}" class="btn btn-default btn-lg" role="button">{{intro.button}}</a></p>
-  </div>
+{{/each}}
 </div>
+
+
+
+</div>  
