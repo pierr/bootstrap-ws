@@ -56,6 +56,7 @@ module.exports = {
     $('div#introContainer').html(require('./templates/intro')(data));
     $('div#teamContainer').html(require('./templates/team')(data));
     $('div#technologiesContainer').html(require('./templates/technologies')(data));
+    //$('div#formContainer').html(require('./templates/form')(data));
     $('footer#footer').html(require('./templates/footer')(data));
     $('div#modalContainer').html(require('./templates/modal')(data));
 
