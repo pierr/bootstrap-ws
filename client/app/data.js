@@ -1,13 +1,15 @@
 module.exports = {
   projectName: "Direction technique",
   company: "Klee group",
+  //Contenu des slides d'intro.
   intro: {
     title: "DT de Klee Group",
     message: "Bienvenue sur le site de la direction technique. Nous nous occupons des elements suivants:",
     tasks: ["Veille technologique", "Assistance technique pour les avant ventes", "Développement des Frameworks de l'entreprise", "Suivi technique des projets"],
     button: "Contactez nous ...",
-subTitle: "..."
+    subTitle: "..."
   },
+  //Contenu de la bar de navigation.
   sections: [{
     selector: "#introContainer",
     name: "Introduction"
@@ -23,6 +25,7 @@ subTitle: "..."
     subject: "[DT] demande d'informations",
     body: "..."
   },
+  //Contanu de la partie équipe.
   teamName: "L'équipe",
   team: [{
     name: "Philippe",
@@ -50,7 +53,7 @@ subTitle: "..."
     twitter: "archiklee"
   }, {
     name: "Frankie",
-    description: "SQL",
+    description: "SQL specialist",
     image: "images/flimont.png",
     technos: ["Java", "SQL"],
     twitter: "SpriteEsial"
@@ -58,9 +61,10 @@ subTitle: "..."
     name: "Pierre",
     description: "JS specialist",
     image: "images/pbesson.jpeg",
-    technos: ["JavaScript", "CoffeeScript", "Node.js", "CSS"],
+    technos: ["JavaScript", ".NET", "CSS"],
     twitter: "pbesson"
   }],
+  //Contenu de la partie technologies.
   technologies: {
     title: "Les technologies",
     values: [{
@@ -83,14 +87,16 @@ subTitle: "..."
       image: "images/sql.jpeg"
     }]
   },
-  modal:{
+  //Contenu de la fenêtre modale.
+  modal: {
     title: "Prise de contact avec la DT",
     body: "Prenez contact avec nous....",
     close: "Annuler",
-    save:"Envoyer"
+    save: "Envoyer"
   },
+  //Contenu de la fenêtre de succès.
   alert: {
-    type: "success",
+    type: "info",
     title: "Merci.",
     message: "Nous prendrons contact avec vous le plus rapidement possible."
   }

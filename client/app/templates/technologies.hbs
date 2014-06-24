@@ -1,15 +1,14 @@
 <div class="container techno">
-      <!-- Example row of columns -->
       <h2>{{technologies.title}}</h2>
       <hr />
       <div class="row">
+        {{!--Contenu de chaque vignette --}}
         {{#each technologies.values}}
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 thumbnail techo-item">
             {{!-- Image --}}
             <img class="img-thumbnail" data-src="holder.js/140x140" alt="140x140" src="{{image}}" style="width: 140px; height: 140px;">          
             <br/><br/>
             <kbd>{{name}}</kbd>
-            {{!-- <kbd>{{name}}</kbd>&nbsp --}}  
           </div>
         {{/each}}
       </div>
