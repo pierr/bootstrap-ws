@@ -62,7 +62,7 @@ module.exports = {
     description: "JS specialist",
     image: "images/pbesson.jpeg",
     technos: ["JavaScript", ".NET", "CSS"],
-    twitter: "pbesson"
+    twitter: "pierrebesson"
   }],
   //Contenu de la partie technologies.
   technologies: {
