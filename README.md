@@ -51,6 +51,6 @@ Un wiki est disponible pour ce projet: [wiki](https://github.com/pierr/bootstrap
 - Depuis le terminal, cloner le repository git: `git clone https://github.com/pierr/bootstrap-ws.git`
 - Se rendre dans le répertoire du projet: `cd $bootstrap-wsPath` et lancer les commandes suivantes `npm install` et `bower install`
 - Lancer le watcher et le serveur [brunch](http://brunch.io) : `brunch w --server`
-- Si jamais vous rencontrez des soucis pour lancer brunch, c'est que node n'est pas dans votre **PATH**, il faut donc écrire le chemin complet: `c:\Users\%username%\AppData\Roaming\npm\brunch w -s`
+- Si jamais vous rencontrez des soucis pour lancer brunch, c'est que node n'est pas dans votre **PATH**, il faut donc écrire le chemin complet: `c:\Users\%username%\AppData\Roaming\npm\brunch w -s` ou `c:/Users/$username/AppData/Roaming/npm/brunch w -s` ou éventuellement ajouter `c:\Users\%username%\AppData\Roaming\npm\` dans votre PATH.
 - Si vous n'avez pas envie de lancer les commandes en ligne de commande vous pouvez utiliser les scripts **.bat** ou **.sh** afin d'installer les prérequis et de lancer le serveur brunch.
 
