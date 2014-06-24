@@ -91,31 +91,49 @@
   globals.require.brunch = true;
 })();
 require.register("client/app/application", function(exports, require, module) {
-function registerComponents(){
-  /*Register carroussel*/
+/**
+ * Register al the components of the page. And handlers.
+ * @return void.
+ */
+function registerComponents() {
+  /*Register Components.*/
+
+  //Carrousel.
   $('div#intro-header').carousel();
-  $('#myCarousel').carousel();
-  /*Register Modal*/
-  $('div#modalContainer').modal({show: false});
-  /*Click on the modal save button.*/
-  $('div#modalContainer button[data-save]').on('click', function(event){
+  //Register Modal
+  $('div#modalContainer').modal({
+    show: false
+  });
+  //Scrollspy.
+  $("div#navContainer").scrollspy();
+
+
+  /*Register handlers.*/
+
+  //Click on the modal save button of the modal.
+  $('div#modalContainer button[data-save]').on('click', function(event) {
+
     var modalData = {};
-    /*Parse value from the form. Not optimal.*/
-    $('[data-input-modal]', 'div#modalContainer .modal').each(function(elt){
+    //Parse value from the form. Not optimal.
+    $('[data-input-modal]', 'div#modalContainer .modal').each(function(elt) {
       modalData[this.id] = this.value;
       //Remove the entered values.
       this.value = null;
     });
-    
+
+    //Close the modal.
     $('div#modalContainer .modal').modal("hide");
     var alertData = require('./data').alert;
     alertData.email = modalData.email;
-    
-    $('div#alert-container').html(require('./templates/alert')({alert:alertData}));
-    console.log('message evnoyé');
+    //Display an alert.
+    $('div#alert-container').html(require('./templates/alert')({
+      alert: alertData
+    }));
+    //console.log('message evnoyé');
   });
-  /*Register help button*/
-  $("button#btn-need-help").on('click', function(){
+
+  //Register help button click.
+  $("button#btn-need-help").on('click', function() {
     $('div#modalContainer .modal').modal('show');
   });
 
@@ -131,13 +149,13 @@ module.exports = {
     $('div#introContainer').html(require('./templates/intro')(data));
     $('div#teamContainer').html(require('./templates/team')(data));
     $('div#technologiesContainer').html(require('./templates/technologies')(data));
+    //$('div#formContainer').html(require('./templates/form')(data));
     $('footer#footer').html(require('./templates/footer')(data));
-    $("div#navContainer").scrollspy();
     $('div#modalContainer').html(require('./templates/modal')(data));
-    
+
     //Button contact on the right side.
     $('body').after(require('./templates/help')(data));
-    
+
     //Register js components.
     registerComponents();
   }
@@ -148,13 +166,15 @@ require.register("client/app/data", function(exports, require, module) {
 module.exports = {
   projectName: "Direction technique",
   company: "Klee group",
+  //Contenu des slides d'intro.
   intro: {
     title: "DT de Klee Group",
     message: "Bienvenue sur le site de la direction technique. Nous nous occupons des elements suivants:",
     tasks: ["Veille technologique", "Assistance technique pour les avant ventes", "Développement des Frameworks de l'entreprise", "Suivi technique des projets"],
     button: "Contactez nous ...",
-subTitle: "..."
+    subTitle: "..."
   },
+  //Contenu de la bar de navigation.
   sections: [{
     selector: "#introContainer",
     name: "Introduction"
@@ -170,6 +190,7 @@ subTitle: "..."
     subject: "[DT] demande d'informations",
     body: "..."
   },
+  //Contanu de la partie équipe.
   teamName: "L'équipe",
   team: [{
     name: "Philippe",
@@ -197,7 +218,7 @@ subTitle: "..."
     twitter: "archiklee"
   }, {
     name: "Frankie",
-    description: "SQL",
+    description: "SQL specialist",
     image: "images/flimont.png",
     technos: ["Java", "SQL"],
     twitter: "SpriteEsial"
@@ -205,9 +226,10 @@ subTitle: "..."
     name: "Pierre",
     description: "JS specialist",
     image: "images/pbesson.jpeg",
-    technos: ["JavaScript", "CoffeeScript", "Node.js", "CSS"],
-    twitter: "pbesson"
+    technos: ["JavaScript", ".NET", "CSS"],
+    twitter: "pierrebesson"
   }],
+  //Contenu de la partie technologies.
   technologies: {
     title: "Les technologies",
     values: [{
@@ -230,18 +252,21 @@ subTitle: "..."
       image: "images/sql.jpeg"
     }]
   },
-  modal:{
+  //Contenu de la fenêtre modale.
+  modal: {
     title: "Prise de contact avec la DT",
     body: "Prenez contact avec nous....",
     close: "Annuler",
-    save:"Envoyer"
+    save: "Envoyer"
   },
+  //Contenu de la fenêtre de succès.
   alert: {
-    type: "success",
+    type: "info",
     title: "Merci.",
     message: "Nous prendrons contact avec vous le plus rapidement possible."
   }
 };
+
 });
 
 require.register("client/app/initialize", function(exports, require, module) {
@@ -308,6 +333,26 @@ if (typeof define === 'function' && define.amd) {
 }
 });
 
+;require.register("client/app/templates/form", function(exports, require, module) {
+var __templateData = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<form>\r\n  <div class=\"form-group\">\r\n    <label for=\"email\">Email</label>\r\n    <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\" data-input-modal>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"message\">Message</label>\r\n    <textarea class=\"form-control\" id=\"message\" rows=\"4\" placeholder=\"Tapez votre message...\" data-input-modal></textarea>\r\n  </div>\r\n</form>";
+  });
+if (typeof define === 'function' && define.amd) {
+  define([], function() {
+    return __templateData;
+  });
+} else if (typeof module === 'object' && module && module.exports) {
+  module.exports = __templateData;
+} else {
+  __templateData;
+}
+});
+
 ;require.register("client/app/templates/help", function(exports, require, module) {
 var __templateData = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
@@ -357,12 +402,12 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n    <li data-target=\"#intro-header\" data-slide-to=\""
+  buffer += "\r\n      <li data-target=\"#intro-header\" data-slide-to=\""
     + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" class=\"";
   stack1 = helpers.unless.call(depth0, (data == null || data === false ? data : data.index), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\"></li>\r\n    ";
+  buffer += "\"></li>\r\n      ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -374,26 +419,26 @@ function program2(depth0,data) {
 function program4(depth0,data,depth1) {
   
   var buffer = "", stack1;
-  buffer += "\r\n    <div class=\"item ";
+  buffer += "\r\n      <div class=\"item ";
   stack1 = helpers.unless.call(depth0, (data == null || data === false ? data : data.index), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\">\r\n        <img src=\"images/slide.svg\" alt=\"\">\r\n        <div class=\"container\">\r\n            <div class=\"carousel-caption\">\r\n                <h1>"
+  buffer += "\">\r\n          <img src=\"images/slide.svg\" alt=\"\">\r\n          <div class=\"container\">\r\n              <div class=\"carousel-caption\">\r\n                  <h1>"
     + escapeExpression(((stack1 = ((stack1 = (depth1 && depth1.intro)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1>\r\n                <h3>"
+    + "</h1>\r\n                  <h3>"
     + escapeExpression(((stack1 = ((stack1 = (depth1 && depth1.intro)),stack1 == null || stack1 === false ? stack1 : stack1.message)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h3>\r\n                <h2>"
+    + "</h3>\r\n                  <h2>"
     + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
-    + "</h2>\r\n                \r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+    + "</h2>\r\n                  \r\n              </div>\r\n          </div>\r\n      </div>\r\n  ";
   return buffer;
   }
 
-  buffer += "<div id=\"intro-header\" class=\"carousel slide\" data-ride=\"carousel\">\r\n\r\n<ol class=\"carousel-indicators\">\r\n    ";
+  buffer += "<div id=\"intro-header\" class=\"carousel slide\" data-ride=\"carousel\">\r\n  \r\n  <ol class=\"carousel-indicators\">\r\n      ";
   stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.tasks), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n</ol>\r\n\r\n<div class=\"carousel-inner\">\r\n";
+  buffer += "\r\n  </ol>\r\n  \r\n  <div class=\"carousel-inner\">\r\n  ";
   stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.intro)),stack1 == null || stack1 === false ? stack1 : stack1.tasks), {hash:{},inverse:self.noop,fn:self.programWithDepth(4, program4, data, depth0),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n</div>\r\n\r\n\r\n\r\n</div>  \r\n";
+  buffer += "\r\n  </div>\r\n</div>  \r\n";
   return buffer;
   });
 if (typeof define === 'function' && define.amd) {
@@ -414,11 +459,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" \">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\r\n        <h4 class=\"modal-title\">"
+  buffer += "<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" \">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      \r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\r\n        <h4 class=\"modal-title\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.modal)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <p>"
+    + "</h4>\r\n      </div>\r\n      \r\n      <div class=\"modal-body\">\r\n        <p>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.modal)),stack1 == null || stack1 === false ? stack1 : stack1.body)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\r\n        <div class=\"form-group\">\r\n          <label for=\"email\">Email</label>\r\n          <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\" data-input-modal>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"message\">Message</label>\r\n          <textarea class=\"form-control\" id=\"message\" rows=\"4\" placeholder=\"Tapez votre message...\" data-input-modal></textarea>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">"
+    + "</p>\r\n\r\n        \r\n        <form>\r\n          <div class=\"form-group\">\r\n            <label for=\"email\">Email</label>\r\n            <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\" data-input-modal>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"message\">Message</label>\r\n            <textarea class=\"form-control\" id=\"message\" rows=\"4\" placeholder=\"Tapez votre message...\" data-input-modal></textarea>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      \r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.modal)),stack1 == null || stack1 === false ? stack1 : stack1.close)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" data-save>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.modal)),stack1 == null || stack1 === false ? stack1 : stack1.save)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -457,14 +502,14 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\r\n      <div class=\"container\">\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <a class=\"navbar-brand\" href=\"#\">";
+  buffer += "<div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\r\n      <div class=\"container\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <a class=\"navbar-brand\" href=\"#\">";
   if (helper = helpers.projectName) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.projectName); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\">\r\n          <ul class=\"nav navbar-nav\">\r\n            ";
+    + "</a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\">\r\n          \r\n          <ul class=\"nav navbar-nav\">\r\n            ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.sections), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n          </ul>\r\n        </div>\r\n       <!--/.navbar-collapse -->\r\n      </div>\r\n    </div>";
+  buffer += "\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>";
   return buffer;
   });
 if (typeof define === 'function' && define.amd) {
@@ -560,13 +605,13 @@ function program1(depth0,data) {
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</kbd>\r\n              \r\n          </div>\r\n        ";
+    + "</kbd>\r\n          </div>\r\n        ";
   return buffer;
   }
 
-  buffer += "<div class=\"container techno\">\r\n      <!-- Example row of columns -->\r\n      <h2>"
+  buffer += "<div class=\"container techno\">\r\n      <h2>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.technologies)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h2>\r\n      <hr />\r\n      <div class=\"row\">\r\n        ";
+    + "</h2>\r\n      <hr />\r\n      <div class=\"row\">\r\n        \r\n        ";
   stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.technologies)),stack1 == null || stack1 === false ? stack1 : stack1.values), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n      </div>\r\n</div>\r\n";
